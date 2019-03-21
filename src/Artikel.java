@@ -3,7 +3,7 @@ import java.math.RoundingMode;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Artikel {
+public class Artikel implements Searchable {
     private static final AtomicInteger inc = new AtomicInteger();
     private int id;
     private String  EAN;
@@ -87,5 +87,14 @@ public class Artikel {
     @Override
     public String toString() {
         return "Id: " + id + ", EAN: " + EAN + ", ime: " + ime + ", cena: " + cena + ", kolicina: " + kolicina + " rok uporabnosti: " + rok.toString() + " davcna stopnja: " + davcnaStopnja;
+    }
+
+    @Override
+    public boolean search(String s) {
+        return(this.ime.compareTo(s) == 0 ||
+                String.valueOf(this.cena).compareTo(s) == 0 ||
+                String.valueOf(this.kolicina).compareTo(s) == 0 ||
+                this.EAN.compareTo(s) == 0 ||
+                this.rok.toString().compareTo(s) == 0);
     }
 }
