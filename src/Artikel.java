@@ -1,5 +1,7 @@
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -83,6 +85,59 @@ public class Artikel implements Searchable {
     public void setKolicina(double kolicina) {
         this.kolicina = kolicina;
     }
+
+  /*  public static int[] genDigit(String checkDigit) {
+        int[] check = new int[] {3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3};
+        int sum = 0;
+        int[] digits = new int[checkDigit.length()];
+        for (int i = 0; i < checkDigit.length(); i++)
+        {
+            digits[i] = checkDigit.charAt(i) - '0';
+        }
+        int size = digits.length-1;
+        for (int i = check.length-1; i>(check.length-1) - digits.length; i--){
+            digits[size] = digits[size]*check[i];
+            size--;
+
+        }
+        for (int dig :
+                digits) {
+            System.out.println(dig);
+            sum+=dig;
+        }
+        System.out.println(sum);
+        int higherTen = (int) (Math.ceil(sum/10.0) * 10);
+        System.out.println(higherTen);
+        digits[digits.length] = higherTen - sum;
+        return digits;
+    }
+*/
+    public static boolean checkDigit(String checkDigit) {
+        int[] check = new int[] {3,1,3,1,3,1,3,1,3,1,3,1,3,1,3,1,3};
+        int sum = 0;
+        int[] digits = new int[checkDigit.length()];
+        for (int i = 0; i < checkDigit.length(); i++)
+        {
+            digits[i] = Character.getNumericValue(checkDigit.charAt(i));
+        }
+        int lastDigit = digits[digits.length-1];
+        digits = Arrays.copyOf(digits,digits.length-1);
+        int size = digits.length-1;
+        for (int i = check.length-1; i>(check.length-1) - digits.length; i--){
+            digits[size] = digits[size]*check[i];
+            size--;
+        }
+        for (int dig :
+                digits) {
+            //System.out.println(dig);
+            sum+=dig;
+        }
+        //System.out.println(sum);
+        int higherTen = (int) (Math.ceil(sum/10.0) * 10);
+        //System.out.println(higherTen);
+        return (lastDigit == higherTen-sum);
+    }
+
 
     @Override
     public String toString() {

@@ -27,8 +27,10 @@ public class Main {
         System.out.println(racun.toString());
         System.out.println(racun2.toString());
         System.out.println(racun3.toString());
-        System.out.println("\n" + kumarice.search("123456789102"));
-        System.out.println("\n" + racun.search("true"));
+        //System.out.println("\n" + kumarice.search("123456789102"));
+        //System.out.println("\n" + racun.search("true"));
+
+        System.out.println(Artikel.checkDigit("98056678755655"));
 
     }
 }
