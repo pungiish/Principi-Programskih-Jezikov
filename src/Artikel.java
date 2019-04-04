@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.Date;
@@ -146,10 +145,10 @@ public class Artikel implements Searchable {
 
     @Override
     public boolean search(String s) {
-        return(this.ime.compareTo(s) == 0 ||
-                String.valueOf(this.cena).compareTo(s) == 0 ||
-                String.valueOf(this.kolicina).compareTo(s) == 0 ||
-                this.EAN.compareTo(s) == 0 ||
-                this.rok.toString().compareTo(s) == 0);
+        return(this.ime.contains(s) ||
+                String.valueOf(this.cena).contains(s) ||
+                String.valueOf(this.kolicina).contains(s) ||
+                this.EAN.contains(s) ||
+                this.rok.toString().contains(s));
     }
 }

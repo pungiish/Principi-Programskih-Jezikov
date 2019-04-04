@@ -53,10 +53,10 @@ public class Podjetje implements Searchable{
 
 	@Override
 	public boolean search(String s) {
-		return (this.ime.compareTo(s) == 0 ||
-				String.valueOf(this.jeZavezanec).compareTo(s) == 0 ||
-				this.davcna.compareTo(s) == 0 ||
-				this.maticna.compareTo(s) == 0
+		return (this.ime.contains(s) ||
+				String.valueOf(this.jeZavezanec).contains(s) ||
+				this.davcna.contains(s) ||
+				this.maticna.contains(s)
 				);
 	}
 }

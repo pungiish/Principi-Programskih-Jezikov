@@ -1,5 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
+//TODO Racun izpise izdajatelja (podjetje)
+// - racun izpise ceno brez ddvja in z ddvjem
 
 public class Racun implements Searchable {
 	private static final AtomicInteger inc = new AtomicInteger();
@@ -48,15 +50,15 @@ public class Racun implements Searchable {
 
 	@Override
 	public boolean search(String s) {
-		if (this.prodajalka.compareTo((s)) == 0 ||
-		this.datum.toString().compareTo(s) == 0 ||
-		this.podjetje.getIme().compareTo(s) == 0 ||
-		String.valueOf(this.id).compareTo(s) == 0 ||
-		String.valueOf(podjetje.isJeZavezanec()).compareTo(s) == 0)
+		if (this.prodajalka.contains((s))||
+		this.datum.toString().contains(s)||
+		this.podjetje.getIme().contains(s)||
+		String.valueOf(this.id).contains(s)||
+		String.valueOf(podjetje.isJeZavezanec()).contains(s))
 			return true;
 		for (Artikel a : artikli.getArtikels()) {
-			if (a.getEAN().compareTo(s) == 0 ||
-			a.getIme().compareTo(s) == 0)
+			if (a.getEAN().contains(s)||
+			a.getIme().contains(s))
 				return true;
 		}
 		return false;
