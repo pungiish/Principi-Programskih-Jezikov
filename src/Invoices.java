@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class Invoices {
+public class Invoices implements JsonSupport{
 	private Vector<Racun> racuns;
 	public Vector<Racun> getracuns() {
 		return racuns;

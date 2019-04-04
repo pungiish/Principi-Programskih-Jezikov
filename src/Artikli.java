@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.Vector;
 
-public class Artikli {
+public class Artikli implements JsonSupport {
 	private Vector<Artikel> artikels;
 
 	public Vector<Artikel> getArtikels() {

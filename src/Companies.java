@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class Companies {
+public class Companies implements JsonSupport{
 	private Vector<Podjetje> podjetjas;
 
 	public Companies() {
