@@ -1,6 +1,8 @@
+import com.google.gson.Gson;
+
 import java.util.Vector;
 
-public class Companies implements JsonSupport{
+public class Companies implements JsonSupport {
 	private Vector<Podjetje> podjetjas;
 
 	public Companies() {
@@ -35,6 +37,18 @@ public class Companies implements JsonSupport{
 	public void EditKolicina(Podjetje Podjetje, float kol){
 
 	}
+	public Companies fromJson(String s) {
+		Gson gson = new Gson();
+		Companies artikli = gson.fromJson(s, Companies.class);
+		return artikli;
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		String json = gson.toJson(this);
+		return json;
+	}
+
 	@Override
 	public String toString() {
 		String Invoices = "";

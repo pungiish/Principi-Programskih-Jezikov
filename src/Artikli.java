@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+
 import java.math.BigDecimal;
 import java.util.Vector;
 
@@ -60,6 +62,17 @@ public class Artikli implements JsonSupport {
 			cena = cena.add(a.getCena());
 		}
 		return cena;
+	}
+	public Artikli fromJson(String s) {
+			Gson gson = new Gson();
+			Artikli artikli = gson.fromJson(s, Artikli.class);
+			return artikli;
+		}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		String json = gson.toJson(this);
+		return json;
 	}
 
 	@Override

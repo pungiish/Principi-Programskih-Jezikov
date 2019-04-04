@@ -1,11 +1,11 @@
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Vector;
 
 public class Main {
-
 	static String Prodajalka = "Janja";
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Podjetje podjetje1 = new Podjetje("Henkel", "58665765", "626175200", true);
 		Podjetje podjetje2 = new Podjetje("Henkel1", "111111765", "111115200", true);
 		Podjetje podjetje3 = new Podjetje("Henkel2", "22222265", "2222200", true);
@@ -31,6 +31,11 @@ public class Main {
 		//System.out.println("\n" + racun.search("true"));
 
 		System.out.println(Artikel.checkDigit("98056678755655"));
-
+		HelperClass.writeToFile("Test4", seznamArtiklov.toJson());
+		String test1 = HelperClass.readFromFile("Test4");
+		Artikli nov = new Artikli();
+		System.out.println(test1);
+		nov = nov.fromJson(test1);
+		System.out.println(nov.toString());
 	}
 }

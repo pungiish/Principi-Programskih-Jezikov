@@ -1,6 +1,8 @@
+import com.google.gson.Gson;
+
 import java.util.Vector;
 
-public class Invoices implements JsonSupport{
+public class Invoices implements JsonSupport {
 	private Vector<Racun> racuns;
 	public Vector<Racun> getracuns() {
 		return racuns;
@@ -31,6 +33,17 @@ public class Invoices implements JsonSupport{
 
 	public void EditKolicina(Racun Racun, float kol){
 
+	}
+	public Invoices fromJson(String s) {
+		Gson gson = new Gson();
+		Invoices artikli = gson.fromJson(s, Invoices.class);
+		return artikli;
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		String json = gson.toJson(this);
+		return json;
 	}
 	@Override
 	public String toString() {
