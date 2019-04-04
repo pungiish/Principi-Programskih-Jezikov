@@ -34,9 +34,6 @@ public class Companies implements JsonSupport {
 		this.podjetjas.clear();
 	}
 
-	public void EditKolicina(Podjetje Podjetje, float kol){
-
-	}
 	public Companies fromJson(String s) {
 		Gson gson = new Gson();
 		Companies artikli = gson.fromJson(s, Companies.class);
@@ -51,11 +48,11 @@ public class Companies implements JsonSupport {
 
 	@Override
 	public String toString() {
-		String Invoices = "";
+		String Podjetja = "";
 		for (Podjetje a: podjetjas) {
-			Invoices += "Kolicina: " + '\n';
+			Podjetja += "Podjetje: " + a.toString() + '\n';
 		}
-		return Invoices;
+		return Podjetja;
 	}
 
 }

@@ -49,7 +49,7 @@ public class Invoices implements JsonSupport {
 	public String toString() {
 		String Invoices = "";
 		for (Racun a: racuns) {
-			Invoices += "Kolicina: " + '\n';
+			Invoices += "Racun: " + a.toString() + '\n';
 		}
 		return Invoices;
 	}
