@@ -66,6 +66,7 @@ public class Artikli implements JsonSupport {
 	public Artikli fromJson(String s) {
 			Gson gson = new Gson();
 			Artikli artikli = gson.fromJson(s, Artikli.class);
+			artikels = artikli.artikels;
 			return artikli;
 		}
 

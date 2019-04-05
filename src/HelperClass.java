@@ -17,7 +17,4 @@ public class HelperClass {
 		String read = Files.readString(path);
 		return read;
 	}
-	public static Class<?> getMyType(Object o) {
-		return o.getClass();
-	}
 }

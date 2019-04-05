@@ -35,7 +35,7 @@ public class Main {
 		String test1 = HelperClass.readFromFile("Test4");
 		Artikli nov = new Artikli();
 		System.out.println(test1);
-		nov = nov.fromJson(test1);
+		nov.fromJson(test1);
 		System.out.println(nov.toString());
 	}
 }
