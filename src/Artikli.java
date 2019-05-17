@@ -80,7 +80,7 @@ public class Artikli implements JsonSupport {
 	public String toString() {
 		String artikli = "";
 		for (Artikel a: artikels) {
-			artikli += "Kolicina: " + a.getKolicina() + " Izdelek: " + a.getIme() + " Cena: " + a.getCena() + '\n';
+			artikli += "Kolicina: " + a.getKolicina() + " Izdelek: " + a.getIme() + " Cena: " + a.getCena() + " teza: " + a.getEAN().substring(7,12).replaceFirst("^0+(?!$)", "") + "g" + '\n';
 		}
 		return artikli;
 	}
