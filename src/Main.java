@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Vector;
-
+import si.um.feri.database.DBHelper;
 
 
 public class Main {
@@ -42,6 +42,9 @@ public class Main {
 		mleko.razberiEan();
 		kumarice2.razberiEan();
 		System.out.println(racun.toString());
-
+		kumarice.setKolicina(502);
+		kumarice.razberiEan();
+		DBHelper conn = new DBHelper();
+		conn.Povezi("SELECT IME FROM ARTICLE");
 	}
 }

@@ -126,11 +126,8 @@ public class Artikel implements Searchable {
 
     public void setKolicina(double kolicina) {
         this.kolicina = kolicina;
-        //String EAN = this.getEAN();
         String prviDel = EAN.substring(0,7);
-        //System.out.println(prviDel);
-        String check = EAN.substring(11);
-        //System.out.println(check);
+        String check = EAN.substring(12);
         String kolicina1 = String.valueOf((int)kolicina);
         System.out.println(kolicina1);
         if ((int)kolicina < 10)
@@ -157,12 +154,16 @@ public class Artikel implements Searchable {
         }
         for(int i = 0; i<10; i++)
         {
-            if (checkDigit(String.valueOf(i)))
+            StringBuilder novEan = new StringBuilder(prviDel+kolicina1+check);
+            String novEAN = novEan.substring(0,12);
+            novEAN += String.valueOf(i);
+            if (checkDigit(novEAN))
             {
                 check = String.valueOf(i);
                 break;
             }
         }
+        this.cena = cena.multiply(BigDecimal.valueOf(kolicina).multiply(BigDecimal.valueOf(davcnaStopnja)).add(cena));
         StringBuilder novEan = new StringBuilder(prviDel+kolicina1+check);
         this.EAN = novEan.toString();
         System.out.println(this.EAN);

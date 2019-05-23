@@ -2,6 +2,7 @@ public class Podjetje implements Searchable{
 	private String ime;
 	private String davcna;
 	private String maticna;
+	private String naslov;
 	private boolean jeZavezanec;
 
 	public Podjetje(String ime, String davcna, String maticna, boolean jeZavezanec) {
